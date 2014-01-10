@@ -1,0 +1,8 @@
+<h1>Client app authentication</h1>
+
+<%  if current_user %>
+You are currently logged in.
+<%= link_to 'Log-out', deauthorize_logins_path %>
+<% else %>
+<%= link_to 'Log-in', new_login_path %>
+<% end %>

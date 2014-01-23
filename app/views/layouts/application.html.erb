@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>OwnyourinfodevClient</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>OwnyourinfodevClient</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="header">
+      <%  if current_user %>
+        You are currently logged in using the profile <strong><%= session[:name]%></strong>.
+        <%= link_to 'Health Records', health_records_path %> | <%= link_to 'Log-out', deauthorize_logins_path %>
+      <% else %>
+        <%= link_to 'Log-in', new_login_path %>
+      <% end %>
+    </div>
+    <% if flash[:error] || flash[:notice] %>
+    <div id="notices">
+      <%= flash[:notice]%>
+      <%= flash[:error]%>
+      </div>
+    <% end %>
+    <%= yield %>
+  </body>
 </html>

@@ -11,3 +11,21 @@
  *= require_self
  *= require_tree .
  */
+
+#header {
+    margin: 10px 0px 20px
+}
+
+.subgroup {
+    margin: 15px 0px;
+}
+
+label {
+    width: 300px;
+    display: inline-block;
+}
+
+input[type="text"] {
+    width: 300px;
+    display: inline-block;
+}

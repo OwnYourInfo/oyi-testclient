@@ -1,5 +1,5 @@
 class LoginsController < ApplicationController
-  
+  skip_before_filter :check_user, :only => [:index, :new, :authorize, :deauthorize]
   # GET /logins
   # GET /logins.json
   def index
@@ -59,6 +59,8 @@ class LoginsController < ApplicationController
     respond_to do |format|
       if token && @login.save
         session[:current_user_id] = @login.id
+        session[:name] = JSON.parse(token.get("/api/v1/profiles/default.json").body)["profile_name"]
+        session[:auth_hash] = token.to_hash.to_s
         format.html do
           flash[:notice] = 'You have successfully been logged in.'
           redirect_to "/"

@@ -1,0 +1,23 @@
+<h1>Health Records</h1>
+<%= link_to "Create new health record", new_health_record_url %>
+
+<% @health_records.sort.each do |hr| %>
+<h2><%= hr.first.titleize %></h2>
+<% if hr.last.class.to_s == "Array" %>
+<% hr.last.each do |h| %>
+<div class="subgroup">
+  <% h.each do |e| %>
+  <strong><%= e.first.titleize %></strong> : <%= e.last %><br />
+  <% end %>
+</div>
+<% end %>
+<% else %>
+<div class="subgroup">
+  <% hr.last.each do |e| %>
+  <strong><%= e.first.titleize %></strong> : <%= e.last %><br />
+  <% end %>
+</div>
+<% end %>
+<%  end %>
+
+

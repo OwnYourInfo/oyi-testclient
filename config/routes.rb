@@ -6,7 +6,7 @@ OwnyourinfodevClient::Application.routes.draw do
       get 'list'
     end
   end
-  match 'health_records/create' =>'health_records#create'
+  get 'health_records/create' =>'health_records#create'
   resources :health_records
 
 

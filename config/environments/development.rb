@@ -23,6 +23,6 @@ OwnyourinfodevClient::Application.configure do
   
   DOORKEEPER_APP_ID = '80b902fde8dfbcb6362af5b35d3f85063fc6b0abf6b8dbb2571a117567664b1d'
   DOORKEEPER_APP_SECRET = 'dfc99e0154b3f490a46efc0c9ba2dffb880b704606f1620415a225847e15cfc8'
-  DOORKEEPER_APP_URL = "http://127.0.0.1:3000"
-  DOORKEEPER_CALLBACK_URL = "http://127.0.0.1:3001/logins/authorize"
+  DOORKEEPER_APP_URL = "http://localhost:3000"
+  DOORKEEPER_CALLBACK_URL = "http://localhost:3001/logins/authorize"
 end

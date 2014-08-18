@@ -8,6 +8,7 @@ OwnyourinfodevClient::Application.routes.draw do
   end
   get 'health_records/create' =>'health_records#create'
   resources :health_records
+  resources :users, :constraints => { :id => /.*/ }
 
 
   # The priority is based upon order of creation:

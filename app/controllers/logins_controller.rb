@@ -35,7 +35,8 @@ class LoginsController < ApplicationController
   # GET /logins/new.json
   def new
     client = OAuth2::Client.new(DOORKEEPER_APP_ID, DOORKEEPER_APP_SECRET, :site => DOORKEEPER_APP_URL)
-    authorize_link = client.auth_code.authorize_url(:redirect_uri => DOORKEEPER_CALLBACK_URL)
+    authorize_link = client.auth_code.authorize_url(:redirect_uri => DOORKEEPER_CALLBACK_URL,
+      :email_address => "test787433@email.com", :first_name => "john", :last_name => "doe")
     
     respond_to do |format|
       format.html { redirect_to authorize_link }
@@ -107,5 +108,5 @@ class LoginsController < ApplicationController
       format.html { redirect_to logins_url }
       format.json { head :no_content }
     end
-  end  
+  end
 end

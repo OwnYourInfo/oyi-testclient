@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
   
   def check_user
-    cs= current_token_session.get("/api/v1/check_session.json")
+    cs= current_token_session.get("/api/v1/check_session.json") rescue nil
     if cs.blank?
       flash[:error] = "Your session has expired. Please login again."
       redirect_to "/"

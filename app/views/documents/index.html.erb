@@ -1,0 +1,25 @@
+<h1>Documents</h1>
+<%= link_to "Create new document", new_document_url %>
+
+<% @documents.each do |d| %>
+  <h2><%= d.first.titleize %></h2>
+  <% if d.last.class.to_s == "Array" && !d.last.blank? %>
+    <% d.last.each do |h| %>
+      <div class="subgroup">
+        <% h.each do |e| %>
+          <strong><%= e.first.titleize %></strong> : <%= e.last %><br />
+        <% end %>
+      </div>
+    <% end %>
+  <% elsif !d.last.blank? %>
+      <div class="subgroup">
+        <% d.last.each do |e| %>
+          <strong><%= e.first.titleize %></strong> : <%= e.last %><br />
+        <% end %>
+      </div>
+  <% else %>
+    <p>No entry to display.</p>
+  <% end %>
+<%  end %>
+
+

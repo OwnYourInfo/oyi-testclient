@@ -1,0 +1,11 @@
+<%= form_tag "/documents" do %>
+  <% @document.sort.each do |d| %>
+    <h2><%= d.first.titleize %></h2>
+    <% (d.last.collect(){|c| c unless c.class==Hash}).compact.each do |h| %>
+    <%= label_tag("fields[documents][]["+h+"]", h.titleize) %> <%= text_field_tag("fields[documents][]["+h+"]") %><br />
+    <% end %>
+  <% end %>
+  <div class="subgroup">
+    <%= submit_tag %>
+  </div>
+<% end %>

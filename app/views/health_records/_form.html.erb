@@ -1,10 +1,10 @@
 <%= form_tag "create" do %>
-<% @health_records.sort.each do |hr| %>
-<h2><%= hr.first.titleize %></h2>
-<% (hr.last.collect(){|c| c unless((["existing_web_login", "touched", "existing_contact"].include? c) || c.class==Hash)}).compact.each do |h| %>
-<%= label_tag("fields["+hr.first+"]["+h+"]", h.titleize) %> <%= text_field_tag("fields["+hr.first+"]["+h+"]") %><br />
-<% end %>
-<% end %>
+  <% @health_records.sort.each do |hr| %>
+    <h2><%= hr.first.titleize %></h2>
+    <% (hr.last.collect(){|c| c unless((["existing_web_login", "touched", "existing_contact", "id"].include? c) || c.class==Hash)}).compact.each do |h| %>
+    <%= label_tag("fields["+hr.first+"]["+h+"]", h.titleize) %> <%= text_field_tag("fields["+hr.first+"]["+h+"]") %><br />
+    <% end %>
+  <% end %>
   <div class="subgroup">
     <%= submit_tag %>
   </div>

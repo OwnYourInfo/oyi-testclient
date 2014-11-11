@@ -36,7 +36,7 @@ class LoginsController < ApplicationController
   def new
     client = OAuth2::Client.new(DOORKEEPER_APP_ID, DOORKEEPER_APP_SECRET, :site => DOORKEEPER_APP_URL)
     authorize_link = client.auth_code.authorize_url(:redirect_uri => DOORKEEPER_CALLBACK_URL,
-      :email_address => "test787433@email.com", :first_name => "john", :last_name => "doe",
+      :email_address => test[:email], :first_name => "john", :last_name => "doe",
       :authorize => (params[:type].blank? ? nil : params[:type]) )
     
     respond_to do |format|

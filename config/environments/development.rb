@@ -21,8 +21,8 @@ OwnyourinfodevClient::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
-  DOORKEEPER_APP_ID = '80b902fde8dfbcb6362af5b35d3f85063fc6b0abf6b8dbb2571a117567664b1d'
-  DOORKEEPER_APP_SECRET = 'dfc99e0154b3f490a46efc0c9ba2dffb880b704606f1620415a225847e15cfc8'
+  DOORKEEPER_APP_ID = '2b51a11c29e3eacd02a48eadde429de194ab2291516946b2dd4e6d5306ec7988'
+  DOORKEEPER_APP_SECRET = '94ef88bb3fcd2919fec6cb6c3822738c8b0da75006fba711f31c240e4aa11f6e'
   DOORKEEPER_APP_URL = "http://localhost:3000"
   DOORKEEPER_CALLBACK_URL = "http://localhost:3001/logins/authorize"
 end

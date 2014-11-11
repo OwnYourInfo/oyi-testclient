@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user, :current_token
   
+  def test
+    {
+      email: "testjklksdsdsdl@hh.com"
+    }
+  end
+  
   private
   
   def current_user
